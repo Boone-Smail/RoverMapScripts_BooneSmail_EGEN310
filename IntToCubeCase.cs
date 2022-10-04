@@ -90,7 +90,7 @@ public class IntToCubeCase : MonoBehaviour
                     cubeCase = 0;
                 }
             }
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.25f);
         }
     }
 }
@@ -127,7 +127,8 @@ public static class CubeCase {
     //values of an em vertex mirrored right/left
     private static int[] emReflect = new int[] {2,1,0,3,7,6,5,4,10,9,8,11};
     //values of an em vertex mirrored up/down
-    //Yes this is a kingdom hearts reference, no I don't feel bad about it
+    // Yes "Nobody" and "Fall" is a reference to an overly used trope from Kingdom Hearts used in mostly
+    // animation media. No I don't feel bad using it.
     private static int[] emNobody = new int[] {8,9,10,11,4,5,6,7,0,1,2,3};
     private static List<Vector3> temp = new List<Vector3>();
     private static Trig tempTrig;
@@ -678,6 +679,64 @@ public static class CubeCase {
                 return shape(145) + shape(4);
             case 150:
                 return shape(144) + shape(6);
+            case 151:
+                tempTrig = shape(6) + shape(128);
+                tempTrig.points = fall(interpret());
+                return tempTrig;
+            case 152:
+                tempTrig = shape(13);
+                tempTrig.points = sault(interpret(), 3);
+                return tempTrig;
+            case 153:
+                tempTrig = shape(102);
+                tempTrig.points = sault(interpret(), 2);
+                return tempTrig;
+            case 154:
+                return shape(152) + shape(2);
+            case 155:
+                tempTrig = shape(152);
+                tempTrig.points = mirror(interpret());
+                return tempTrig;
+            case 156:
+                tempTrig = shape(77);
+                tempTrig.points = sault(interpret(), 3);
+                return tempTrig;
+            case 157:
+                tempTrig = shape(145);
+                tempTrig.points = mirror(interpret());
+                return tempTrig;
+            case 158:
+                tempTrig = shape(22);
+                tempTrig.points = fall(interpret());
+                return tempTrig;
+            case 159:
+                tempTrig = shape(6);
+                tempTrig.points = fall(interpret());
+                return tempTrig;
+            case 160:
+                tempTrig = shape(18);
+                tempTrig.points = roll(interpret(), 1);
+                return tempTrig;
+            case 161:
+                return shape(128) + shape(32) + shape(1);
+            case 162:
+                return shape(34) + shape(128);
+            case 163:
+                return shape(35) + shape(128);
+            case 164:
+                return shape(32) + shape(4) + shape(128);
+            case 165:
+                return shape(1) + shape(32) + shape(4) + shape(128);
+            case 166:
+                return shape(38) + shape(128);
+            case 167:
+                return shape(39) + shape(128);
+            case 168:
+                return shape(136) + shape(32);
+            case 169:
+                return shape(137) + shape(32);
+            case 170:
+                return shape(136) + shape(34);
         }
         return new Trig();
     }
