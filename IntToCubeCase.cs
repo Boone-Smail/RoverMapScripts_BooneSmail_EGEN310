@@ -664,6 +664,20 @@ public static class CubeCase {
                 tempTrig = shape(11);
                 tempTrig.points = sault(interpret(), 3);
                 return tempTrig;
+            case 146:
+                tempTrig = shape(22);
+                tempTrig.points = sault(interpret(), 2);
+                return tempTrig;
+            case 147:
+                tempTrig = shape(43);
+                tempTrig.points = sault(interpret(),3);
+                return tempTrig;
+            case 148:
+                return shape(144) + shape(4);
+            case 149:
+                return shape(145) + shape(4);
+            case 150:
+                return shape(144) + shape(6);
         }
         return new Trig();
     }
