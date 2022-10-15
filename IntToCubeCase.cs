@@ -132,6 +132,7 @@ public static class CubeCase {
     private static int[] emNobody = new int[] {8,9,10,11,4,5,6,7,0,1,2,3};
     private static List<Vector3> temp = new List<Vector3>();
     private static Trig tempTrig;
+    static Trig bridge = new Trig(Assess(new int[] {0,1,2,3}), new int[] {0,1,2,2,3,0});
 
     // First occurences of specific shapes are marked with comments.
     // Most other shapes are transformations of original ones.
@@ -353,12 +354,12 @@ public static class CubeCase {
                 tempTrig = shape(32) + shape(12);
                 tempTrig.points = roll(interpret(), 3);
                 invertNormals();
-                return tempTrig;
+                return tempTrig + bridgeSault(1);
             case 62:
                 tempTrig = shape(28);
                 tempTrig.points = roll(interpret(), 3);
                 invertNormals();
-                return tempTrig;
+                return tempTrig + bridgeSault(3);
             case 63:
                 tempTrig = shape(48);
                 tempTrig.points = roll(interpret(), 1);
@@ -456,7 +457,7 @@ public static class CubeCase {
                 tempTrig = shape(81);
                 tempTrig.points = rotateClockwise(interpret(),3);
                 invertNormals();
-                return tempTrig;
+                return tempTrig + bridgeRoll(2);
             case 88:
                 return shape(64) + shape(16) + shape(8);
             case 89:
@@ -474,14 +475,14 @@ public static class CubeCase {
                 tempTrig = shape(81);
                 tempTrig.points = rotateClockwise(interpret());
                 invertNormals();
-                return tempTrig;
+                return tempTrig + bridgeRoll(2);
             case 94:
                 return shape(78) + shape(16);
             case 95:
                 tempTrig = shape(80);
                 tempTrig.points = rotateClockwise(interpret());
                 invertNormals();
-                return tempTrig;
+                return tempTrig + bridgeRoll(2);
             case 96:
                 tempTrig = shape(6);
                 tempTrig.points = sault(interpret(),1);
@@ -523,7 +524,7 @@ public static class CubeCase {
                 tempTrig = shape(73);
                 tempTrig.points = sault(interpret(), 3);
                 invertNormals();
-                return tempTrig;
+                return tempTrig + bridgeRoll(3);
             case 108:
                 tempTrig = shape(54);
                 tempTrig.points = rotateClockwise(interpret());
@@ -532,7 +533,7 @@ public static class CubeCase {
                 tempTrig = shape(41);
                 tempTrig.points = sault(interpret(), 3);
                 invertNormals();
-                return tempTrig;
+                return tempTrig + bridgeRoll(1);
             case 110:
                 tempTrig = shape(25);
                 tempTrig.points = roll(interpret(),1);
@@ -566,7 +567,7 @@ public static class CubeCase {
             case 117: // Mirror cheat
                 tempTrig = shape(69);
                 tempTrig.points = mirror(interpret());
-                return tempTrig;
+                return tempTrig + bridge;
             case 118: // Mirror cheat
                 tempTrig = shape(70);
                 tempTrig.points = mirror(interpret());
@@ -580,17 +581,17 @@ public static class CubeCase {
             case 121: // Mirror cheat
                 tempTrig = shape(104);
                 tempTrig.points = fall(interpret());
-                return tempTrig;
+                return tempTrig + bridgeRoll(3);
             case 122:
                 return shape(114) + shape(8);
             case 123: // Mirror cheat
                 tempTrig = shape(18);
                 tempTrig.points = reflect(interpret());
-                return tempTrig;
+                return tempTrig + bridgeRoll(3);
             case 124: // Mirror cheat
                 tempTrig = shape(28);
                 tempTrig.points = reflect(interpret());
-                return tempTrig;
+                return tempTrig + bridgeSault(3);
             case 125: // Mirror cheat
                 tempTrig = shape(65);
                 tempTrig.points = mirror(interpret());
@@ -598,7 +599,7 @@ public static class CubeCase {
             case 126:
                 tempTrig = shape(66);
                 tempTrig.points = mirror(interpret());
-                return tempTrig;
+                return tempTrig + bridgeSault(3);
             case 127: // Mirror cheat
                 tempTrig = shape(8);
                 tempTrig.points = fall(interpret());
@@ -682,7 +683,7 @@ public static class CubeCase {
             case 151:
                 tempTrig = shape(6) + shape(128);
                 tempTrig.points = fall(interpret());
-                return tempTrig;
+                return tempTrig + bridgeRoll(3);
             case 152:
                 tempTrig = shape(13);
                 tempTrig.points = sault(interpret(), 3);
@@ -708,7 +709,7 @@ public static class CubeCase {
             case 158:
                 tempTrig = shape(22);
                 tempTrig.points = fall(interpret());
-                return tempTrig;
+                return tempTrig + bridgeRoll(1);
             case 159:
                 tempTrig = shape(6);
                 tempTrig.points = fall(interpret());
@@ -737,6 +738,316 @@ public static class CubeCase {
                 return shape(137) + shape(32);
             case 170:
                 return shape(136) + shape(34);
+            case 171:
+                tempTrig = shape(136) + shape(32);
+                tempTrig.points = mirror(interpret());
+                return tempTrig + bridgeRoll(2);
+            case 172:
+                return shape(140) + shape(32);
+            case 173:
+                return shape(141) + shape(32);
+            case 174:
+                tempTrig = shape(34) + shape(128);
+                tempTrig.points = mirror(interpret());
+                return tempTrig + bridgeRoll(2);
+            case 175:
+                tempTrig = shape(1) + shape(4);
+                tempTrig.points = fall(interpret());
+                return tempTrig + bridgeRoll(2);
+            case 176:
+                tempTrig = shape(7);
+                tempTrig.points = sault(interpret(), 2);
+                return tempTrig;
+            case 177:
+                tempTrig = shape(27);
+                tempTrig.points = roll(interpret(),1);
+                return tempTrig;
+            case 178:
+                tempTrig = shape(23);
+                tempTrig.points = roll(interpret(), 1);
+                return tempTrig;
+            case 179:
+                tempTrig = shape(35);
+                tempTrig.points = reflect(interpret());
+                return tempTrig;
+            case 180:
+                return shape(176) + shape(4);
+            case 181:
+                return shape(177) + shape(4);
+            case 182:
+                tempTrig = shape(128) + shape(6);
+                tempTrig.points = mirror(interpret());
+                return tempTrig + bridgeRoll(3);
+            case 183:
+                tempTrig = shape(33);
+                tempTrig.points = reflect(interpret());
+                return tempTrig + bridgeRoll(3);
+            case 184:  
+                tempTrig = shape(147);
+                tempTrig.points = roll(interpret(), 1);
+                return tempTrig;
+            case 185:
+                tempTrig = shape(137);
+                tempTrig.points = mirror(interpret());
+                return tempTrig;
+            case 186:
+                tempTrig = shape(8) + shape(34);
+                tempTrig.points = reflect(interpret());
+                return tempTrig + bridge;
+            case 187:
+                tempTrig = shape(34);
+                tempTrig.points = reflect(interpret());
+                return tempTrig;
+            case 188:
+                tempTrig = shape(12) + shape(32);
+                tempTrig.points = reflect(interpret());
+                return tempTrig + bridgeSault(1);
+            case 189:
+                tempTrig = shape(4) + shape(32);
+                tempTrig.points = reflect(interpret());
+                return tempTrig + bridgeSault(1);
+            case 190:
+                tempTrig = shape(40);
+                tempTrig.points = reflect(interpret());
+                return tempTrig;
+            case 191: // Originally used Invert normals, was acting funky
+                tempTrig = shape(4);
+                tempTrig.points = fall(interpret());
+                return tempTrig;
+            case 192:
+                tempTrig = shape(48);
+                tempTrig.points = roll(interpret(), 1);
+                return tempTrig;
+            case 193:
+                return shape(192) + shape(1);
+            case 194:
+                return shape(192) + shape(2);
+            case 195:
+                return shape(192) + shape(3);
+            case 196:
+                tempTrig = shape(14);
+                tempTrig.points = roll(interpret(), 3);
+                return tempTrig;
+            case 197:
+                return shape(196) + shape(1);
+            case 198:
+                tempTrig = shape(77);
+                tempTrig.points = sault(interpret(),1);
+                return tempTrig;
+            case 199:
+                tempTrig = shape(3) + shape(128);
+                tempTrig.points = fall(interpret());
+                return tempTrig + bridgeSault(3);
+            case 200:
+                tempTrig = shape(13);
+                tempTrig.points = roll(interpret(),3);
+                return tempTrig;
+            case 201:
+                tempTrig = shape(29);
+                tempTrig.points = roll(interpret(), 3);
+                return tempTrig;
+            case 202:
+                return shape(200) + shape(2);
+            case 203:
+                tempTrig = shape(194);
+                tempTrig.points = reflect(interpret());
+                return tempTrig + bridgeSault(1);
+            case 204:
+                tempTrig = shape(15);
+                tempTrig.points = roll(interpret(), 3);
+                return tempTrig;
+            case 205:
+                tempTrig = shape(196);
+                tempTrig.points = reflect(interpret());
+                return tempTrig;
+            case 206:
+                tempTrig = shape(200);
+                tempTrig.points = reflect(interpret());
+                return tempTrig;
+            case 207:
+                tempTrig = shape(3);
+                tempTrig.points = fall(interpret());
+                return tempTrig;
+            case 208:
+                tempTrig = shape(14);
+                tempTrig.points = sault(interpret(),2);
+                return tempTrig;
+            case 209:
+                tempTrig = shape(57);
+                tempTrig.points = roll(interpret(),1);
+                return tempTrig;
+            case 210:
+                return shape(208) + shape(2);
+            case 211:
+                tempTrig = shape(67);
+                tempTrig.points = reflect(interpret());
+                return tempTrig + bridgeSault(1);
+            case 212:
+                tempTrig = shape(113);
+                tempTrig.points = roll(interpret(),1);
+                return tempTrig;
+            case 213:
+                tempTrig = shape(21);
+                tempTrig.points = mirror(interpret());
+                return tempTrig + bridge;
+            case 214:
+                tempTrig = shape(22);
+                tempTrig.points = mirror(interpret());
+                return tempTrig + bridgeSault(1);
+            case 215:
+                tempTrig = shape(130);
+                tempTrig.points = fall(interpret());
+                return tempTrig;
+            case 216:
+                tempTrig = shape(78);
+                tempTrig.points = sault(interpret(), 2);
+                return tempTrig;
+            case 217:
+                tempTrig = shape(25);
+                tempTrig.points = mirror(interpret());
+                return tempTrig;
+            case 218:
+                return shape(216) + shape(2);
+            case 219:
+                tempTrig = shape(66);
+                tempTrig.points = fall(interpret());
+                return tempTrig + bridgeSault(1);
+            case 220:
+                tempTrig = shape(19);
+                tempTrig.points = mirror(interpret());
+                return tempTrig;
+            case 221:
+                tempTrig = shape(17);
+                tempTrig.points = mirror(interpret());
+                return tempTrig;
+            case 222:
+                tempTrig = shape(18);
+                tempTrig.points = mirror(interpret());
+                return tempTrig + bridgeRoll(1);
+            case 223:
+                tempTrig = shape(2);
+                tempTrig.points = fall(interpret());
+                return tempTrig;
+            case 224:
+                tempTrig = shape(13);
+                tempTrig.points = sault(interpret(),2);
+                return tempTrig;
+            case 225:
+                return shape(224) + shape(1);
+            case 226:
+                tempTrig = shape(71);
+                tempTrig.points = sault(interpret(), 1);
+                return tempTrig;
+            case 227:
+                tempTrig = shape(131);
+                tempTrig.points = reflect(interpret());
+                return tempTrig + bridgeSault(3);
+            case 228:
+                tempTrig = shape(78);
+                tempTrig.points = sault(interpret(),1);
+                return tempTrig;
+            case 229:
+                return shape(228) + shape(1);
+            case 230:
+                tempTrig = shape(38);
+                tempTrig.points = mirror(interpret());
+                return tempTrig;
+            case 231:
+                tempTrig = shape(129);
+                tempTrig.points = fall(interpret());
+                return tempTrig + bridgeSault(3);
+            case 232:
+                tempTrig = shape(198);
+                tempTrig.points = sault(interpret(),1);
+                return tempTrig;
+            case 233:
+                tempTrig = shape(41);
+                tempTrig.points = mirror(interpret());
+                return tempTrig + bridgeRoll(1);
+            case 234:
+                tempTrig = shape(42);
+                tempTrig.points = mirror(interpret());
+                return tempTrig + bridge;
+            case 235:
+                tempTrig = shape(65);
+                tempTrig.points = fall(interpret());
+                return tempTrig;
+            case 236:
+                tempTrig = shape(140);
+                tempTrig.points = reflect(interpret());
+                return tempTrig;
+            case 237:
+                tempTrig = shape(33);
+                tempTrig.points = fall(interpret());
+                return tempTrig + bridgeRoll(1);
+            case 238:
+                tempTrig = shape(34);
+                tempTrig.points = mirror(interpret());
+                return tempTrig;
+            case 239:
+                tempTrig = shape(1);
+                tempTrig.points = fall(interpret());
+                return tempTrig;
+            case 240:
+                tempTrig = shape(15);
+                tempTrig.points = sault(interpret(),2);
+                return tempTrig;
+            case 241:
+                tempTrig = shape(224);
+                tempTrig.points = fall(interpret());
+                return tempTrig;
+            case 242:
+                tempTrig = shape(208);
+                tempTrig.points = fall(interpret());
+                return tempTrig;
+            case 243:
+                tempTrig = shape(192);
+                tempTrig.points = fall(interpret());
+                return tempTrig;
+            case 244:
+                tempTrig = shape(176);
+                tempTrig.points = fall(interpret());
+                return tempTrig;
+            case 245:
+                tempTrig = shape(160);
+                tempTrig.points = fall(interpret());
+                return tempTrig + bridge;
+            case 246:
+                tempTrig = shape(6);
+                tempTrig.points = mirror(interpret());
+                return tempTrig;
+            case 247:
+                tempTrig = shape(128);
+                tempTrig.points = fall(interpret());
+                return tempTrig;
+            case 248:
+                tempTrig = shape(112);
+                tempTrig.points = fall(interpret());
+                return tempTrig;
+            case 249:
+                tempTrig = shape(9);
+                tempTrig.points = mirror(interpret());
+                return tempTrig;
+            case 250:
+                tempTrig = shape(80);
+                tempTrig.points = fall(interpret());
+                return tempTrig  + bridge;
+            case 251:
+                tempTrig = shape(64);
+                tempTrig.points = fall(interpret());
+                return tempTrig;
+            case 252:
+                tempTrig = shape(12);
+                tempTrig.points = reflect(interpret());
+                return tempTrig;
+            case 253:
+                tempTrig = shape(32);
+                tempTrig.points = fall(interpret());
+                return tempTrig;
+            case 254:
+                tempTrig = shape(2);
+                tempTrig.points = mirror(interpret());
+                return tempTrig;
         }
         return new Trig();
     }
@@ -875,6 +1186,26 @@ public static class CubeCase {
             count+=3;
         }
         return og;
+    }
+
+    // Bridge shapes
+    // What applies to opposite corner bridges also
+    // applies to opposite tube/edge shapes
+    private static Trig bridgeTemp;
+    private static Trig bridgeSault(int iters) {
+        bridgeTemp = bridgeInst();
+        bridgeTemp.points = sault(interpret(bridge), iters);
+        return bridgeTemp;
+    }
+
+    private static Trig bridgeRoll(int iters) {
+        bridgeTemp = bridgeInst();
+        bridgeTemp.points = roll(interpret(bridge), iters);
+        return bridgeTemp;
+    }
+
+    private static Trig bridgeInst() {
+        return new Trig(Assess(new int[] {0,1,2,3}), new int[] {0,1,2,2,3,0});
     }
 }
 

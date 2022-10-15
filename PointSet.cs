@@ -53,6 +53,21 @@ public class PointSet
     public int index(Vector3 point) {
         return idMap[Node.asTemp(point)];
     }
+
+    public static PointSet operator +(PointSet A, PointSet B) {
+        Vector3[] temp = B.getPoints();
+        foreach (Vector3 i in temp) {
+            A.addPoint(i);
+        }
+        return A;
+    }
+
+    public static PointSet operator +(PointSet A, Vector3[] B) {
+        foreach (Vector3 i in B) {
+            A.addPoint(i);
+        }
+        return A;
+    }
 }
 
 // Vector3 with extra steps, it lets me hash
