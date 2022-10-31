@@ -55,6 +55,11 @@ public class RoverControl : MonoBehaviour
             canSwapDisplay = false;
             StartCoroutine(SwapDisplay());
         }
+        if (Input.GetKey(KeyCode.G)) {
+            Debug.Log("Moving rover sim to match rover in realspace...");
+            simRover.transform.position = buildCubeMarchAt + rover.transform.position + new Vector3(0,0.5f,0);
+            simRover.transform.rotation = rover.transform.rotation;
+        }
     }
 
     public IEnumerator SwapDisplay() {
