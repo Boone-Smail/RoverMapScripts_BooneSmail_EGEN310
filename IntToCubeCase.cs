@@ -348,8 +348,12 @@ public static class CubeCase {
                 tempTrig.points = roll(interpret(), 3);
                 invertNormals();
                 return tempTrig;
-            case 60:
-                return shape(48) + shape(12);
+            case 60:    // First "Sticky" occurence, ambiguous corner case
+                tempTrig = shape(48) + shape(12);
+                tempTrig.points = reflect(interpret());
+                tempTrig += bridgeSault(3);
+                tempTrig += bridgeSault(1);
+                return tempTrig;
             case 61:
                 tempTrig = shape(32) + shape(12);
                 tempTrig.points = roll(interpret(), 3);
@@ -517,7 +521,11 @@ public static class CubeCase {
             case 104:
                 return shape(96) + shape(8);
             case 105:
-                return shape(96) + shape(9);
+                tempTrig = shape(96) + shape(9);
+                tempTrig.points = mirror(interpret());
+                tempTrig += bridgeRoll(1);
+                tempTrig += bridgeRoll(3);
+                return tempTrig;
             case 106:
                 return shape(98) + shape(8);
             case 107:
@@ -679,7 +687,11 @@ public static class CubeCase {
             case 149:
                 return shape(145) + shape(4);
             case 150:
-                return shape(144) + shape(6);
+                tempTrig = shape(144) + shape(6);
+                tempTrig.points = mirror(interpret());
+                tempTrig += bridgeRoll(1);
+                tempTrig += bridgeRoll(3);
+                return tempTrig;
             case 151:
                 tempTrig = shape(6) + shape(128);
                 tempTrig.points = fall(interpret());
@@ -737,7 +749,11 @@ public static class CubeCase {
             case 169:
                 return shape(137) + shape(32);
             case 170:
-                return shape(136) + shape(34);
+                tempTrig = shape(136) + shape(34);
+                tempTrig.points = mirror(interpret());
+                tempTrig += bridgeInst();
+                tempTrig += bridgeRoll(2);
+                return tempTrig;
             case 171:
                 tempTrig = shape(136) + shape(32);
                 tempTrig.points = mirror(interpret());
@@ -823,7 +839,11 @@ public static class CubeCase {
             case 194:
                 return shape(192) + shape(2);
             case 195:
-                return shape(192) + shape(3);
+                tempTrig = shape(192) + shape(3);
+                tempTrig.points = fall(interpret());
+                tempTrig += bridgeSault(1);
+                tempTrig += bridgeSault(3);
+                return tempTrig;
             case 196:
                 tempTrig = shape(14);
                 tempTrig.points = roll(interpret(), 3);
